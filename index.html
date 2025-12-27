@@ -3,700 +3,229 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Data Waster - Optimize Your Data Usage</title>
+  <title>Data waster</title>
 
-  <meta name="title" content="Data Waster - Optimize Your Data Usage">
-  <meta name="description" content="The fastest and most efficient way to optimize your valuable mobile data">
-  <meta name="keywords" content="network usage, download speed, upload speed, network performance, data testing">
+  <meta name="title" content="Data waster - waste your data">
+  <meta name="description" content="The fastest and the most efficient way to waste your valuable mobile data">
+  <meta name="keywords" content="network usage, download speed, upload speed, network performance">
   <meta name="author" content="HLETRD">
   <meta name="robots" content="index, follow">
   <link rel="canonical" href="https://hletrd.github.io/data-waster/">
 
-  <!-- Open Graph / Facebook -->
-  <meta property="og:type" content="website">
-  <meta property="og:url" content="https://hletrd.github.io/data-waster/">
-  <meta property="og:title" content="Data Waster - Optimize Your Data Usage">
-  <meta property="og:description" content="The fastest and most efficient way to optimize your valuable mobile data">
-  <meta property="og:image" content="https://hletrd.github.io/data-waster/og-image.jpg">
-  <meta property="og:site_name" content="Data Waster">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.6/dist/css/bootstrap.min.css" rel="stylesheet">
 
-  <!-- Twitter -->
-  <meta property="twitter:card" content="summary_large_image">
-  <meta property="twitter:url" content="https://hletrd.github.io/data-waster/">
-  <meta property="twitter:title" content="Data Waster - Optimize Your Data Usage">
-  <meta property="twitter:description" content="The fastest and most efficient way to optimize your valuable mobile data">
-  <meta property="twitter:image" content="https://hletrd.github.io/data-waster/og-image.jpg">
-
-  <!-- Bootstrap 5 -->
-  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.6/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-4Q6Gf2aSP4eDXB8Miphtr37CMZZQ5oXLH2yaXMJ2w8e2ZtHTl7GptT4jmndRuHDT" crossorigin="anonymous">
-  
-  <!-- Font Awesome Icons -->
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-
-  <!-- Modern Styling -->
   <style>
     :root {
-      --primary-gradient: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-      --success-gradient: linear-gradient(135deg, #11998e 0%, #38ef7d 100%);
-      --dark-bg: #0f172a;
-      --card-bg: #1e293b;
-      --accent-color: #3b82f6;
-      --text-primary: #f8fafc;
-      --text-secondary: #cbd5e1;
-      --border-color: #334155;
-    }
-
-    [data-theme="light"] {
-      --dark-bg: #f8fafc;
-      --card-bg: #ffffff;
-      --text-primary: #0f172a;
-      --text-secondary: #475569;
-      --border-color: #e2e8f0;
+      --radius-lg: 20px;
+      --radius-md: 14px;
+      --radius-sm: 10px;
     }
 
     body {
-      background: var(--dark-bg);
-      color: var(--text-primary);
-      font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
-      min-height: 100vh;
-      transition: all 0.3s ease;
-      line-height: 1.6;
+      font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+      background: #f6f7fb;
     }
 
-    .container {
-      max-width: 1200px;
+    /* Card utama */
+    .bg-body-tertiary {
+      border-radius: var(--radius-lg);
+      box-shadow: 0 20px 40px rgba(0, 0, 0, 0.08);
     }
 
-    /* Modern Card */
-    .modern-card {
-      background: var(--card-bg);
-      backdrop-filter: blur(10px);
-      border: 1px solid var(--border-color);
-      border-radius: 20px;
-      box-shadow: 0 20px 40px rgba(0, 0, 0, 0.2);
-      overflow: hidden;
-      transition: transform 0.3s ease, box-shadow 0.3s ease;
+    #title {
+      letter-spacing: -1px;
     }
 
-    .modern-card:hover {
-      transform: translateY(-5px);
-      box-shadow: 0 25px 50px rgba(0, 0, 0, 0.3);
+    .value-number {
+      font-weight: 700;
     }
 
-    /* Header */
-    .app-header {
-      padding: 2.5rem 0 1.5rem;
-      text-align: center;
-      position: relative;
-    }
-
-    .app-header h1 {
-      font-size: 3.5rem;
-      font-weight: 800;
-      background: linear-gradient(135deg, #667eea 0%, #764ba2 50%, #38ef7d 100%);
-      -webkit-background-clip: text;
-      -webkit-text-fill-color: transparent;
-      background-clip: text;
-      margin-bottom: 0.5rem;
-      letter-spacing: -0.5px;
-    }
-
-    .app-header .tagline {
-      font-size: 1.25rem;
-      color: var(--text-secondary);
-      max-width: 600px;
-      margin: 0 auto;
-    }
-
-    /* Toggle Switch Modern */
-    .mode-toggle {
-      display: inline-flex;
-      background: var(--card-bg);
-      padding: 8px;
-      border-radius: 50px;
-      border: 1px solid var(--border-color);
-      gap: 4px;
-    }
-
-    .mode-toggle-btn {
-      padding: 12px 28px;
-      border: none;
-      background: transparent;
-      color: var(--text-secondary);
-      border-radius: 40px;
+    /* Button */
+    .btn {
+      border-radius: var(--radius-md);
       font-weight: 600;
-      font-size: 1rem;
-      transition: all 0.3s ease;
-      display: flex;
-      align-items: center;
-      gap: 10px;
+      padding: 10px 18px;
     }
 
-    .mode-toggle-btn.active {
-      background: var(--primary-gradient);
-      color: white;
-      box-shadow: 0 4px 15px rgba(102, 126, 234, 0.3);
-    }
-
-    .mode-toggle-btn.success.active {
-      background: var(--success-gradient);
-      box-shadow: 0 4px 15px rgba(17, 153, 142, 0.3);
-    }
-
-    /* Form Controls Modern */
-    .form-section {
-      background: rgba(30, 41, 59, 0.5);
-      border-radius: 16px;
-      padding: 2rem;
-      margin: 1.5rem 0;
-      border: 1px solid var(--border-color);
-    }
-
-    .form-label {
-      font-weight: 600;
-      color: var(--text-primary);
-      margin-bottom: 0.75rem;
-      display: flex;
-      align-items: center;
-      gap: 8px;
-    }
-
-    .form-control-modern {
-      background: rgba(15, 23, 42, 0.7);
-      border: 2px solid var(--border-color);
-      border-radius: 12px;
-      padding: 1rem;
-      color: var(--text-primary);
+    .btn-lg {
+      padding: 14px;
       font-size: 1.1rem;
-      font-weight: 500;
-      transition: all 0.3s ease;
     }
 
-    .form-control-modern:focus {
-      border-color: var(--accent-color);
-      box-shadow: 0 0 0 3px rgba(59, 130, 246, 0.1);
-      background: rgba(15, 23, 42, 0.9);
+    .btn-outline-primary.active {
+      background-color: #0d6efd;
+      color: #fff;
     }
 
-    /* Custom Range Slider */
-    .range-slider-container {
-      padding: 1rem 0;
+    .btn-outline-success.active {
+      background-color: #198754;
+      color: #fff;
     }
 
-    .range-label {
-      display: flex;
-      justify-content: space-between;
-      margin-bottom: 0.5rem;
+    /* Input */
+    .form-control {
+      border-radius: var(--radius-md);
+      text-align: right;
     }
 
-    .range-value {
-      font-weight: 700;
-      font-size: 1.2rem;
-      color: var(--accent-color);
+    .form-control:focus {
+      box-shadow: 0 0 0 0.2rem rgba(13,110,253,.15);
     }
 
-    .custom-range {
-      -webkit-appearance: none;
-      width: 100%;
+    /* Range */
+    .form-range::-webkit-slider-thumb {
+      cursor: pointer;
+    }
+
+    /* Progress */
+    .progress-stacked {
       height: 8px;
-      border-radius: 10px;
-      background: var(--border-color);
-      outline: none;
-    }
-
-    .custom-range::-webkit-slider-thumb {
-      -webkit-appearance: none;
-      width: 24px;
-      height: 24px;
-      border-radius: 50%;
-      background: var(--primary-gradient);
-      cursor: pointer;
-      box-shadow: 0 4px 10px rgba(102, 126, 234, 0.4);
-      border: 3px solid white;
-    }
-
-    /* Main Action Button */
-    .action-btn {
-      padding: 1.25rem 2.5rem;
-      font-size: 1.25rem;
-      font-weight: 700;
-      border-radius: 16px;
-      border: none;
-      background: var(--primary-gradient);
-      color: white;
-      cursor: pointer;
-      transition: all 0.3s ease;
-      width: 100%;
-      text-transform: uppercase;
-      letter-spacing: 1px;
-      position: relative;
+      border-radius: 999px;
       overflow: hidden;
     }
 
-    .action-btn:hover {
-      transform: translateY(-3px);
-      box-shadow: 0 15px 30px rgba(102, 126, 234, 0.4);
+    #downloadProgress,
+    #uploadProgress {
+      transition: width 0.15s ease;
     }
 
-    .action-btn.running {
-      background: linear-gradient(135deg, #f43f5e 0%, #f97316 100%);
-      animation: pulse 2s infinite;
+    #statusMessage {
+      font-weight: 600;
     }
 
-    @keyframes pulse {
-      0% { box-shadow: 0 0 0 0 rgba(244, 63, 94, 0.4); }
-      70% { box-shadow: 0 0 0 15px rgba(244, 63, 94, 0); }
-      100% { box-shadow: 0 0 0 0 rgba(244, 63, 94, 0); }
-    }
-
-    /* Progress Bars */
-    .progress-container {
-      background: rgba(30, 41, 59, 0.5);
-      border-radius: 16px;
-      padding: 2rem;
-      margin: 1.5rem 0;
-      border: 1px solid var(--border-color);
-    }
-
-    .progress-stacked-modern {
-      height: 12px;
-      border-radius: 10px;
-      background: rgba(255, 255, 255, 0.05);
-      overflow: hidden;
-      margin: 1.5rem 0;
-      border: 1px solid var(--border-color);
-    }
-
-    .progress-bar-modern {
-      height: 100%;
-      transition: width 0.3s ease;
-    }
-
-    /* Stats Display */
-    .stats-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-      gap: 1.5rem;
-      margin: 2rem 0;
-    }
-
-    .stat-card {
-      background: rgba(30, 41, 59, 0.5);
-      border-radius: 16px;
-      padding: 1.5rem;
-      border: 1px solid var(--border-color);
-      transition: transform 0.3s ease;
-    }
-
-    .stat-card:hover {
-      transform: translateY(-5px);
-      border-color: var(--accent-color);
-    }
-
-    .stat-label {
+    footer {
       font-size: 0.9rem;
-      color: var(--text-secondary);
-      text-transform: uppercase;
-      letter-spacing: 1px;
-      margin-bottom: 0.5rem;
     }
 
-    .stat-value {
-      font-size: 2.5rem;
-      font-weight: 800;
-      background: linear-gradient(135deg, #667eea 0%, #38ef7d 100%);
-      -webkit-background-clip: text;
-      -webkit-text-fill-color: transparent;
-      background-clip: text;
-      line-height: 1;
-    }
-
-    .stat-unit {
-      font-size: 1rem;
-      color: var(--text-secondary);
-      margin-left: 4px;
-    }
-
-    /* Status Message */
-    .status-message {
-      background: rgba(59, 130, 246, 0.1);
-      border: 1px solid rgba(59, 130, 246, 0.3);
-      border-radius: 12px;
-      padding: 1rem 1.5rem;
-      margin: 1rem 0;
-      font-weight: 500;
-      display: flex;
-      align-items: center;
-      gap: 10px;
-      transition: all 0.3s ease;
-    }
-
-    /* Theme Toggle */
-    .theme-toggle {
-      position: fixed;
-      top: 20px;
-      right: 20px;
-      z-index: 1000;
-    }
-
-    .theme-btn {
-      width: 50px;
-      height: 50px;
-      border-radius: 50%;
-      background: var(--card-bg);
-      border: 1px solid var(--border-color);
-      color: var(--text-primary);
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      cursor: pointer;
-      transition: all 0.3s ease;
-      font-size: 1.2rem;
-    }
-
-    .theme-btn:hover {
-      transform: rotate(30deg);
-      border-color: var(--accent-color);
-    }
-
-    /* Footer */
-    .footer {
-      text-align: center;
-      padding: 2rem 0;
-      margin-top: 2rem;
-      border-top: 1px solid var(--border-color);
-      color: var(--text-secondary);
-    }
-
-    /* Responsive */
+    /* Mobile */
     @media (max-width: 768px) {
-      .app-header h1 {
-        font-size: 2.5rem;
-      }
-      
-      .stat-card {
-        padding: 1rem;
-      }
-      
-      .stat-value {
-        font-size: 2rem;
-      }
-      
-      .form-section, .progress-container {
-        padding: 1.5rem;
+      #title {
+        font-size: 2.2rem;
       }
     }
 
-    /* Animations */
-    @keyframes fadeIn {
-      from { opacity: 0; transform: translateY(20px); }
-      to { opacity: 1; transform: translateY(0); }
-    }
+    /* Dark mode */
+    @media (prefers-color-scheme: dark) {
+      body {
+        background-color: #0f1115;
+        color: #e6e6e6;
+      }
 
-    .animate-fade-in {
-      animation: fadeIn 0.6s ease-out;
+      .bg-body-tertiary {
+        background: linear-gradient(180deg, #1a1d23, #12141a);
+        box-shadow: 0 20px 40px rgba(0, 0, 0, 0.4);
+      }
+
+      .form-control {
+        background-color: #1f232b;
+        color: #fff;
+        border-color: #2b2f3a;
+      }
+
+      .form-control:focus {
+        background-color: #1f232b;
+        color: #fff;
+      }
+
+      .text-muted,
+      .text-body-secondary {
+        color: #9aa0aa !important;
+      }
+
+      .border-top {
+        border-color: #2b2f3a !important;
+      }
     }
   </style>
 
+  <!-- SCRIPT TETEP -->
   <script src="./digitalWaste.js" defer></script>
   <script src="./app.js" defer></script>
-
-  <script type="application/ld+json">
-    {
-      "@context": "https://schema.org",
-      "@type": "WebApplication",
-      "name": "Data Waster",
-      "url": "https://hletrd.github.io/data-waster/",
-      "description": "The fastest and most efficient way to optimize your valuable mobile data",
-      "applicationCategory": "UtilityApplication",
-      "operatingSystem": "Any",
-      "offers": {
-        "@type": "Offer",
-        "price": "0",
-        "priceCurrency": "USD"
-      },
-      "author": {
-        "@type": "Person",
-        "name": "HLETRD"
-      }
-    }
-  </script>
 </head>
+
 <body>
-  <!-- Theme Toggle -->
-  <div class="theme-toggle">
-    <button class="theme-btn" id="themeToggle">
-      <i class="fas fa-moon"></i>
-    </button>
-  </div>
+  <div class="container py-3 py-md-5">
+    <div class="p-3 p-md-5 bg-body-tertiary">
+      <h1 class="display-5 fw-bold" id="title">Data waster</h1>
+      <p class="fs-4 text-body-secondary" id="desc">
+        The fastest and most efficient way to waste your valuable mobile data.
+      </p>
 
-  <div class="container py-4">
-    <!-- Modern Card -->
-    <div class="modern-card p-4 p-md-5 animate-fade-in">
-      <!-- Header -->
-      <div class="app-header">
-        <h1><i class="fas fa-bolt"></i> DATA WASTER</h1>
-        <p class="tagline">Optimize your network performance with precision data testing</p>
-      </div>
+      <hr>
 
-      <!-- Mode Selection -->
-      <div class="form-section">
-        <div class="row align-items-center">
-          <div class="col-md-8">
-            <label class="form-label">
-              <i class="fas fa-exchange-alt"></i> Transfer Mode
-            </label>
-            <div class="mode-toggle">
-              <button type="button" class="mode-toggle-btn active" id="downloadOption" data-active="true">
-                <i class="fas fa-download"></i>
-                <span id="downloadLabel">Download</span>
-              </button>
-              <button type="button" class="mode-toggle-btn" id="uploadOption" data-active="false">
-                <i class="fas fa-upload"></i>
-                <span id="uploadLabel">Upload</span>
-              </button>
-            </div>
-          </div>
-          <div class="col-md-4 text-md-end mt-3 mt-md-0">
-            <small class="text-muted">
-              <i class="fas fa-info-circle"></i> Select transfer direction
-            </small>
-          </div>
-        </div>
-      </div>
-
-      <!-- Configuration -->
-      <div class="form-section">
-        <div class="row g-4">
-          <div class="col-md-6">
-            <label for="dataSize" class="form-label">
-              <i class="fas fa-database"></i> Data Size (MB)
-            </label>
-            <div class="input-group">
-              <input type="number" class="form-control-modern" id="dataSize" value="10000" min="0" max="10000000" step="100">
-              <span class="input-group-text" style="background: var(--card-bg); border-color: var(--border-color); color: var(--text-primary);">
-                0 = Unlimited
-              </span>
-            </div>
-          </div>
-          
-          <div class="col-md-6">
-            <div class="range-slider-container">
-              <div class="range-label">
-                <label for="threadCount" class="form-label">
-                  <i class="fas fa-layer-group"></i> Concurrent Connections
-                </label>
-                <span id="threadValue" class="range-value">16</span>
-              </div>
-              <input type="range" class="custom-range" id="threadCount" min="1" max="64" value="16">
-              <div class="d-flex justify-content-between mt-1">
-                <small>Min</small>
-                <small>Balanced</small>
-                <small>Max</small>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-
-      <!-- Main Action -->
-      <div class="mb-4">
-        <button class="action-btn" type="button" id="startButton">
-          <i class="fas fa-play-circle me-2"></i> Start Data Optimization
+      <!-- Toggle -->
+      <div class="d-flex align-items-center mb-4 gap-2">
+        <button class="btn btn-outline-primary active" id="downloadOption" data-active="true">
+          Download
         </button>
+        <button class="btn btn-outline-success" id="uploadOption" data-active="false">
+          Upload
+        </button>
+        <small class="text-muted ms-2" id="toggleHint">
+          Select at least one direction
+        </small>
       </div>
 
-      <!-- Progress Visualization -->
-      <div class="progress-container">
-        <div class="d-flex justify-content-between align-items-center mb-3">
-          <h5 class="mb-0"><i class="fas fa-chart-line me-2"></i> Transfer Progress</h5>
-          <div class="text-end">
-            <div class="d-inline-block px-3 py-1 rounded-pill" style="background: rgba(59, 130, 246, 0.1); color: var(--accent-color);">
-              <span id="totalTransferSpeed">0</span> MB/s
-            </div>
-          </div>
+      <!-- Input -->
+      <div class="row mb-4">
+        <div class="col-md-6 mb-3">
+          <label class="form-label" for="dataSize" id="sizeLabel">
+            Data size (MB, 0 for infinite)
+          </label>
+          <input type="number" class="form-control" id="dataSize" value="10000">
         </div>
-        
-        <div class="progress-stacked-modern">
-          <div class="progress-bar-modern" style="background: var(--primary-gradient); width: 0%" id="downloadProgress"></div>
-          <div class="progress-bar-modern" style="background: var(--success-gradient); width: 0%" id="uploadProgress"></div>
-        </div>
-        
-        <div class="row mt-3">
-          <div class="col-6">
-            <div class="d-flex align-items-center">
-              <div class="me-3">
-                <div style="width: 20px; height: 20px; border-radius: 4px; background: var(--primary-gradient);"></div>
-              </div>
-              <div>
-                <div class="small text-muted">Downloaded</div>
-                <div class="h4 mb-0">
-                  <span class="value-number" id="bytesDownloaded">0</span>
-                  <small>MB</small>
-                </div>
-              </div>
-            </div>
+
+        <div class="col-md-6">
+          <div class="d-flex justify-content-between">
+            <label class="form-label" for="threadCount" id="threadLabel">
+              Concurrent connections
+            </label>
+            <span id="threadValue" class="fw-bold"></span>
           </div>
-          <div class="col-6 text-end">
-            <div class="d-flex align-items-center justify-content-end">
-              <div>
-                <div class="small text-muted">Uploaded</div>
-                <div class="h4 mb-0">
-                  <span class="value-number" id="bytesUploaded">0</span>
-                  <small>MB</small>
-                </div>
-              </div>
-              <div class="ms-3">
-                <div style="width: 20px; height: 20px; border-radius: 4px; background: var(--success-gradient);"></div>
-              </div>
-            </div>
-          </div>
+          <input type="range" class="form-range" id="threadCount" min="1" max="64" value="16">
         </div>
       </div>
 
-      <!-- Statistics -->
-      <div class="stats-grid">
-        <div class="stat-card">
-          <div class="stat-label">Total Processed</div>
-          <div class="stat-value">
-            <span id="totalBytesProcessed">0</span>
-            <span class="stat-unit">MB</span>
-          </div>
+      <!-- Start -->
+      <button class="btn btn-primary btn-lg w-100 mb-4" id="startButton">
+        Start
+      </button>
+
+      <!-- Progress -->
+      <div class="progress-stacked mb-3">
+        <div class="progress-bar bg-primary" id="downloadProgress" style="width:0%"></div>
+        <div class="progress-bar bg-success" id="uploadProgress" style="width:0%"></div>
+      </div>
+
+      <!-- Stats -->
+      <div class="d-flex justify-content-between mb-3">
+        <div>
+          <span class="value-number" id="totalBytesProcessed">0</span>
+          MB total
         </div>
-        
-        <div class="stat-card">
-          <div class="stat-label">Active Connections</div>
-          <div class="stat-value">
-            <span id="activeThreads">0</span>
-            <span class="stat-unit">/</span>
-            <span id="totalThreads">16</span>
-          </div>
-        </div>
-        
-        <div class="stat-card">
-          <div class="stat-label">Transfer Time</div>
-          <div class="stat-value">
-            <span id="transferTime">0</span>
-            <span class="stat-unit">s</span>
-          </div>
-        </div>
-        
-        <div class="stat-card">
-          <div class="stat-label">Efficiency</div>
-          <div class="stat-value">
-            <span id="efficiencyScore">0</span>
-            <span class="stat-unit">%</span>
-          </div>
+        <div>
+          <span class="value-number" id="totalTransferSpeed">0</span>
+          MB/sec
         </div>
       </div>
 
-      <!-- Status Messages -->
-      <div class="status-message" id="statusMessage">
-        <i class="fas fa-info-circle"></i>
-        <span>Ready to optimize your data. Configure settings above and click Start.</span>
+      <div class="row mb-3">
+        <div class="col-md-6">
+          <span class="value-number" id="bytesDownloaded">0</span>
+          MB downloaded
+        </div>
+        <div class="col-md-6 text-md-end">
+          <span class="value-number" id="bytesUploaded">0</span>
+          MB uploaded
+        </div>
       </div>
 
-      <!-- Footer -->
-      <footer class="footer">
-        <div class="d-flex align-items-center justify-content-center gap-3 mb-2">
-          <i class="fas fa-code"></i>
-          <i class="fas fa-bolt"></i>
-          <i class="fas fa-server"></i>
-        </div>
-        <p class="mb-2">Created with <i class="fas fa-heart text-danger"></i> by HLETRD</p>
-        <small class="text-muted">Advanced network optimization tool</small>
+      <p id="statusMessage" class="text-warning"></p>
+
+      <footer class="pt-3 mt-4 border-top text-body-secondary">
+        Created &amp; maintained by HLETRD
       </footer>
     </div>
   </div>
-
-  <!-- JavaScript for Modern Features -->
-  <script>
-    document.addEventListener('DOMContentLoaded', function() {
-      // Theme Toggle
-      const themeToggle = document.getElementById('themeToggle');
-      const themeIcon = themeToggle.querySelector('i');
-      
-      themeToggle.addEventListener('click', function() {
-        const currentTheme = document.documentElement.getAttribute('data-theme');
-        if (currentTheme === 'light') {
-          document.documentElement.removeAttribute('data-theme');
-          themeIcon.className = 'fas fa-moon';
-        } else {
-          document.documentElement.setAttribute('data-theme', 'light');
-          themeIcon.className = 'fas fa-sun';
-        }
-      });
-
-      // Update thread count display
-      const threadCount = document.getElementById('threadCount');
-      const threadValue = document.getElementById('threadValue');
-      const totalThreads = document.getElementById('totalThreads');
-      
-      threadCount.addEventListener('input', function() {
-        const value = this.value;
-        threadValue.textContent = value;
-        totalThreads.textContent = value;
-      });
-
-      // Mode toggle buttons
-      const downloadOption = document.getElementById('downloadOption');
-      const uploadOption = document.getElementById('uploadOption');
-      
-      downloadOption.addEventListener('click', function() {
-        const isActive = this.classList.contains('active');
-        if (!isActive) {
-          this.classList.add('active');
-          uploadOption.classList.remove('active');
-          this.setAttribute('data-active', 'true');
-          uploadOption.setAttribute('data-active', 'false');
-        }
-      });
-      
-      uploadOption.addEventListener('click', function() {
-        const isActive = this.classList.contains('active');
-        if (!isActive) {
-          this.classList.add('active');
-          downloadOption.classList.remove('active');
-          this.setAttribute('data-active', 'true');
-          downloadOption.setAttribute('data-active', 'false');
-        }
-      });
-
-      // Start button animation
-      const startButton = document.getElementById('startButton');
-      startButton.addEventListener('click', function() {
-        if (!this.classList.contains('running')) {
-          this.classList.add('running');
-          this.innerHTML = '<i class="fas fa-stop-circle me-2"></i> Stop Optimization';
-          
-          // Update status
-          const statusMessage = document.getElementById('statusMessage');
-          statusMessage.innerHTML = '<i class="fas fa-sync fa-spin me-2"></i> Optimizing data transfer...';
-          statusMessage.style.background = 'rgba(244, 63, 94, 0.1)';
-          statusMessage.style.borderColor = 'rgba(244, 63, 94, 0.3)';
-        } else {
-          this.classList.remove('running');
-          this.innerHTML = '<i class="fas fa-play-circle me-2"></i> Start Data Optimization';
-          
-          // Reset status
-          const statusMessage = document.getElementById('statusMessage');
-          statusMessage.innerHTML = '<i class="fas fa-check-circle me-2"></i> Optimization completed successfully';
-          statusMessage.style.background = 'rgba(17, 153, 142, 0.1)';
-          statusMessage.style.borderColor = 'rgba(17, 153, 142, 0.3)';
-        }
-      });
-
-      // Initialize values
-      threadValue.textContent = threadCount.value;
-      totalThreads.textContent = threadCount.value;
-
-      // Add animation to stat cards on load
-      const statCards = document.querySelectorAll('.stat-card');
-      statCards.forEach((card, index) => {
-        card.style.animationDelay = `${index * 0.1}s`;
-        card.classList.add('animate-fade-in');
-      });
-    });
-  </script>
 </body>
 </html>
